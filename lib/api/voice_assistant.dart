@@ -5,6 +5,8 @@
 
 import 'dart:collection';
 
+import './text_to_speech.dart';
+
 class VoiceAssitant {
   //Private Constructor
   VoiceAssitant._();
@@ -41,7 +43,8 @@ class VoiceAssitant {
 
       if (lastCommand == null || lastCommand != commandToProcess) {
         //Processing
-        await Future.delayed(const Duration(seconds: 10));
+        // await Future.delayed(const Duration(seconds: 10));
+        TextToSpeech.instance.addDialogue(commandToProcess);
         lastCommand = commandToProcess;
       }
     }
