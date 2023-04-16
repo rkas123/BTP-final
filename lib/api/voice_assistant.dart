@@ -5,6 +5,10 @@
 
 import 'dart:collection';
 
+import 'package:btp_final_app/api/backend_api.dart';
+
+import 'package:btp_final_app/api/camera.dart';
+
 import './text_to_speech.dart';
 
 class VoiceAssitant {
@@ -44,8 +48,16 @@ class VoiceAssitant {
       if (lastCommand == null || lastCommand != commandToProcess) {
         //Processing
         // await Future.delayed(const Duration(seconds: 10));
+
         TextToSpeech.instance.addDialogue(commandToProcess);
+
+        final image = await Camera.instance.takePicture();
         lastCommand = commandToProcess;
+
+        await BackendApi.instance.apiCall(
+          command: commandToProcess,
+          image: image,
+        );
       }
     }
 

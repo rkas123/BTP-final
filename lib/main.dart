@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+import 'package:camera/camera.dart';
 
 import './screens/homescreen/home.dart';
 import './screens/change_url/change_url_screen.dart';
 
-import './api/backend_api.dart';
+// List of cameras, exported.
+List<CameraDescription> ListOfCameras = [];
 
-void main() => runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  ListOfCameras = await availableCameras();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

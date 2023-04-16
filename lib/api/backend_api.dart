@@ -1,3 +1,7 @@
+import 'package:http/http.dart' as http;
+
+import 'package:http_parser/http_parser.dart';
+
 class BackendApi {
   //Private Constructor
   BackendApi._();
@@ -5,7 +9,7 @@ class BackendApi {
   //instance
   static final instance = BackendApi._();
 
-  String _url = '';
+  String _url = 'http://192.168.1.8:5000/';
 
   //getters
   String get url {
@@ -19,5 +23,23 @@ class BackendApi {
   Future<void> apiCall({
     required String command,
     required dynamic image,
-  }) async {}
+  }) async {
+    final Url = Uri.parse('${_url}/raahi/voice_command');
+    Map<String, String> headers = {"Content-type": "multipart/form-data"};
+    var request = http.MultipartRequest('POST', Url);
+
+    request.files.add(
+      http.MultipartFile(
+        'image',
+        image.readAsBytes().asStream(),
+        image.lengthSync(),
+        filename: 'filename',
+        contentType: MediaType('image', 'jpg'),
+      ),
+    );
+
+    request.fields['command'] = command;
+
+    var res = await request.send();
+  }
 }
