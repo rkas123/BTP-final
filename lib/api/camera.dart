@@ -24,9 +24,6 @@ class Camera {
 
     final image = await controller.takePicture();
     var file = File(image.path);
-    print(file.path);
-    print(image.runtimeType);
-    print(image);
 
     return file;
   }
