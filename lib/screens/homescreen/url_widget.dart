@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-
 import '../../api/backend_api.dart';
 
 import '../../screens/change_url/change_url_screen.dart';
@@ -11,14 +9,12 @@ class UrlWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backendApi = Provider.of<BackendApi>(context);
-
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Text(
-            backendApi.url,
+            BackendApi.instance.url,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 16,
@@ -31,7 +27,8 @@ class UrlWidget extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.edit),
           onPressed: () {
-            Navigator.of(context).pushNamed(ChangeUrlScreen.routeName);
+            Navigator.of(context)
+                .pushReplacementNamed(ChangeUrlScreen.routeName);
           },
         ),
       ],

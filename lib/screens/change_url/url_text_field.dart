@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-
 import '../../api/backend_api.dart';
 
 class UrlTextField extends StatefulWidget {
@@ -24,12 +22,9 @@ class _UrlTextFieldState extends State<UrlTextField> {
 
   @override
   Widget build(BuildContext context) {
-    final backendApiProvider = Provider.of<BackendApi>(
-      context,
-    );
+    final url = BackendApi.instance.url;
 
-    _urlController.text = backendApiProvider.url;
-
+    _urlController.text = url;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -39,7 +34,8 @@ class _UrlTextFieldState extends State<UrlTextField> {
         ),
         ElevatedButton(
           onPressed: () {
-            backendApiProvider.changeUrl(_urlController.text);
+            BackendApi.instance.changeUrl(_urlController.text);
+            setState(() {});
           },
           child: const Text('Update'),
         ),

@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
+class BackendApi {
+  //Private Constructor
+  BackendApi._();
 
-class BackendApi with ChangeNotifier {
+  //instance
+  static final instance = BackendApi._();
+
   String _url = '';
 
   //getters
   String get url {
     return _url;
-  }
-
-  void notify() {
-    notifyListeners();
   }
 
   void changeUrl(String newUrl) {

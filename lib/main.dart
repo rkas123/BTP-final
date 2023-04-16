@@ -13,17 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (ctx) => BackendApi()),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: const SafeArea(child: HomePage()),
-        routes: {
-          ChangeUrlScreen.routeName: (ctx) => const ChangeUrlScreen(),
-        },
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const SafeArea(child: HomePage()),
+      routes: {
+        ChangeUrlScreen.routeName: (ctx) => const ChangeUrlScreen(),
+      },
     );
   }
 }

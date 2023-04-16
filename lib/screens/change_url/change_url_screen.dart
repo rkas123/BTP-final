@@ -14,7 +14,7 @@ class ChangeUrlScreen extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
         floatingActionButton: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pushReplacementNamed('/');
           },
           icon: const Icon(
             Icons.arrow_back,
