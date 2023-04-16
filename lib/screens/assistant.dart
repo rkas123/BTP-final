@@ -1,19 +1,18 @@
-import 'package:btp_final_app/api/backend_api.dart';
-import 'package:btp_final_app/screens/assistant.dart';
-import 'package:btp_final_app/screens/url_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'package:avatar_glow/avatar_glow.dart';
 
 import '../api/speech_api.dart';
 import '../api/voice_assistant.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Assistant extends StatefulWidget {
+  const Assistant({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Assistant> createState() => _AssistantState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AssistantState extends State<Assistant> {
   bool isListening = false;
   String? text;
 
@@ -44,12 +43,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          UrlWidget(),
-          Assistant(),
-        ],
+    return Center(
+      child: AvatarGlow(
+        animate: isListening,
+        glowColor: Colors.red,
+        endRadius: 75,
+        child: IconButton(
+          onPressed: toggleRecording,
+          icon:
+              isListening ? const Icon(Icons.mic) : const Icon(Icons.mic_none),
+        ),
       ),
     );
   }

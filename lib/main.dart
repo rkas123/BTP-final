@@ -1,4 +1,6 @@
+import 'package:btp_final_app/api/backend_api.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import './screens/home.dart';
 
@@ -9,8 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => BackendApi()),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SafeArea(child: HomePage()),
+      ),
     );
   }
 }
