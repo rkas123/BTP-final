@@ -1,8 +1,10 @@
-import 'package:btp_final_app/api/backend_api.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/homescreen/home.dart';
+import './screens/homescreen/home.dart';
+import './screens/change_url/change_url_screen.dart';
+
+import './api/backend_api.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,9 +17,12 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (ctx) => BackendApi()),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SafeArea(child: HomePage()),
+        home: const SafeArea(child: HomePage()),
+        routes: {
+          ChangeUrlScreen.routeName: (ctx) => const ChangeUrlScreen(),
+        },
       ),
     );
   }
