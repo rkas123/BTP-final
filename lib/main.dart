@@ -2,7 +2,7 @@ import 'package:btp_final_app/api/backend_api.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './screens/home.dart';
+import 'screens/homescreen/home.dart';
 
 void main() => runApp(const MyApp());
 

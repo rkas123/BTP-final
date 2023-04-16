@@ -1,10 +1,10 @@
-import 'package:btp_final_app/api/backend_api.dart';
-import 'package:btp_final_app/screens/assistant.dart';
-import 'package:btp_final_app/screens/url_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../api/speech_api.dart';
-import '../api/voice_assistant.dart';
+import '../../api/speech_api.dart';
+import '../../api/voice_assistant.dart';
+
+import '../../screens/homescreen/assistant.dart';
+import '../../screens/homescreen/url_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:avatar_glow/avatar_glow.dart';
 
-import '../api/speech_api.dart';
-import '../api/voice_assistant.dart';
+import '../../api/speech_api.dart';
+import '../../api/voice_assistant.dart';
 
 class Assistant extends StatefulWidget {
   const Assistant({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../api/backend_api.dart';
+import '../../api/backend_api.dart';
 
 class UrlWidget extends StatelessWidget {
   const UrlWidget({Key? key}) : super(key: key);
