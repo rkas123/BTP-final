@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:btp_final_app/api/text_to_speech.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:http_parser/http_parser.dart';
@@ -40,6 +43,10 @@ class BackendApi {
 
     request.fields['command'] = command;
 
-    var res = await request.send();
+    final res = await request.send();
+    final respStr = await res.stream.bytesToString();
+
+    final toSpeak = json.decode(respStr)['command'];
+    TextToSpeech.instance.addDialogue(toSpeak);
   }
 }
