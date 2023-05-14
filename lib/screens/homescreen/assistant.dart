@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:btp_final_app/api/text_to_speech.dart';
 import 'package:flutter/material.dart';
 
 import 'package:avatar_glow/avatar_glow.dart';
@@ -24,7 +27,7 @@ class _AssistantState extends State<Assistant> {
           */
           if (!isListening) {
             Future.delayed(const Duration(seconds: 1), () {
-              // print(text);
+              print(text);
 
               VoiceAssitant.instance.addCommand(text as String);
             });
@@ -43,15 +46,26 @@ class _AssistantState extends State<Assistant> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: AvatarGlow(
-        animate: isListening,
-        glowColor: Colors.red,
-        endRadius: 75,
-        child: IconButton(
-          onPressed: toggleRecording,
-          icon:
-              isListening ? const Icon(Icons.mic) : const Icon(Icons.mic_none),
+    return Expanded(
+      child: Center(
+        child: AvatarGlow(
+          animate: isListening,
+          glowColor: Colors.red,
+          endRadius: 100,
+          child: IconButton(
+            onPressed: (TextToSpeech.instance.ttsBusy == true)
+                ? null
+                : toggleRecording,
+            icon: isListening
+                ? const Icon(
+                    Icons.mic,
+                    size: 32,
+                  )
+                : const Icon(
+                    Icons.mic_none,
+                    size: 32,
+                  ),
+          ),
         ),
       ),
     );

@@ -51,6 +51,10 @@ class VoiceAssitant {
 
         TextToSpeech.instance.addDialogue(commandToProcess);
 
+        if (Camera.instance.busyCamera == true) {
+          TextToSpeech.instance.addDialogue('Try Again');
+          continue;
+        }
         final image = await Camera.instance.takePicture();
         lastCommand = commandToProcess;
 

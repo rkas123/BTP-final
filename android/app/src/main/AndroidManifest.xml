@@ -5,7 +5,7 @@
     <uses-permission android:name = "android.permission.RECORD_AUDIO"/>
 
    <application
-        android:label="btp_final_app"
+        android:label="Raahi"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

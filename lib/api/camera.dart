@@ -8,6 +8,8 @@ class Camera {
   late CameraController controller;
 
   bool flashState = false;
+
+  bool busyCamera = false;
   /*
       false --> Flash OFF
       true  --> Flash ON
@@ -16,15 +18,20 @@ class Camera {
     // List of Cameras imported from main.dart
     controller = CameraController(ListOfCameras[0], ResolutionPreset.medium);
   }
+
   static final instance = Camera._();
 
   Future<dynamic> takePicture() async {
+    busyCamera = true;
+    print("BUSY CAMERA +++++++++++++++++");
     await controller.initialize();
     controller.setFlashMode(FlashMode.off);
 
     final image = await controller.takePicture();
     var file = File(image.path);
 
+    busyCamera = false;
+    print("CAMERA FREE ----------------");
     return file;
   }
 
