@@ -9,7 +9,7 @@ Raahi uses Machine learning techinques like -
 
 to assist visually impaired people in navigation.
 
-We made this as out Bachelors of Technology Project(BTP).
+We made this as our Bachelors of Technology Project(BTP).
 
 ### Made By
 
@@ -20,9 +20,9 @@ We made this as out Bachelors of Technology Project(BTP).
 
 ## Setup
 
-1. We have provided an APK of a mobile application built using the Framework.
-2. Download the APK on an Android application and install it.
-3. Since the application is in prototype phase, so we didn't took the trouble of buying a hosting service. You need to run the backend server on your device to test the functionality. Follow steps [here](https://github.com/rkas123/Raahi-flask) to set up the backend server.
+1. We have provided an APK of a mobile application built using the Flutter Framework.
+2. Download the APK on an Android device and install it.
+3. Since the application is in prototype phase, we didn't take the trouble of buying a hosting service. You need to run the backend server on your device to test the functionality. Follow steps [here](https://github.com/rkas123/Raahi-flask) to set up the backend server.
 4. Start the app.
 
 That's it! You can test the prototype now.
@@ -36,4 +36,4 @@ That's it! You can test the prototype now.
 3. Automatic request is sent to the backend every 20 seconds(configurable). The user doesn't need to do anything for it.
 4. Manual requests can be triggered by the user by clicking on the mic button and speaking out a command.
 
-The app using voice commands to communicate. The output is also given the user using Text to speech, therefore all the communication occurs via sound.
+The app uses voice commands to communicate. The output is also given the user using Text to speech, therefore all the communication occurs via sound.
