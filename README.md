@@ -1,16 +1,39 @@
-# btp_final_app
+# Raahi - Assitive tool for visually impaired
 
-A new Flutter project.
+Raahi uses Machine learning techinques like -
 
-## Getting Started
+- Object Localization
+- Depth Estimation
+- Lane Detection
+- Natural Language Processing
 
-This project is a starting point for a Flutter application.
+to assist visually impaired people in navigation.
 
-A few resources to get you started if this is your first Flutter project:
+We made this as out Bachelors of Technology Project(BTP).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Made By
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Aditya Kumar
+- Harmeet Singh
+- Rupesh Kumar
+- Sumit Yadav
+
+## Setup
+
+1. We have provided an APK of a mobile application built using the Framework.
+2. Download the APK on an Android application and install it.
+3. Since the application is in prototype phase, so we didn't took the trouble of buying a hosting service. You need to run the backend server on your device to test the functionality. Follow steps [here](https://github.com/rkas123/Raahi-flask) to set up the backend server.
+4. Start the app.
+
+That's it! You can test the prototype now.
+
+## User manual
+
+1. The application is based on automation and easy interaction, so using the app is very intuitive.
+2. There are 2 types of operations a user can perform
+   - Automatic
+   - Manual
+3. Automatic request is sent to the backend every 20 seconds(configurable). The user doesn't need to do anything for it.
+4. Manual requests can be triggered by the user by clicking on the mic button and speaking out a command.
+
+The app using voice commands to communicate. The output is also given the user using Text to speech, therefore all the communication occurs via sound.
